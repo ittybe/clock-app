@@ -1,0 +1,39 @@
+:root {
+    /* colours */
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray: #303030;
+
+    --button-color: #303030;
+    --button-color-hover: #999999;
+
+    /* font sizes */
+    /* mobile, font size */
+    --m-time-f-s: 100px;
+    --m-greetings-f-s: 15px;
+    --m-button-f-s: 12px;
+    --m-quote-f-s: 12px;
+    --m-key-f-s: 10px;
+    --m-value-f-s: 20px; 
+
+    /* tablet */
+    --t-time-f-s: 175px;
+    --t-greetings-f-s: 18px;
+    --t-button-f-s: 16px;
+    --t-quote-f-s: 18px;
+    --t-key-f-s: 13px;
+    --t-value-f-s: 40px; 
+
+    /* desktop */
+    --d-time-f-s: 200px;
+    --d-greetings-f-s: 20px;
+    --d-button-f-s: 16px;
+    --d-quote-f-s: 18px;
+    --d-key-f-s: 15px;
+    --d-value-f-s: 56px; 
+
+    /* fonts */
+    --font-family: 'Inter', sans-serif;
+    --font-regular: 400;
+    --font-bold: 700;
+}
