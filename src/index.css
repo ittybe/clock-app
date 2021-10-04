@@ -11,9 +11,11 @@ body {
 }
 
 body {
+  @apply leading-4;
     height: 100vh;
     width: 100vw;
     font-family: var(--font-family);
+    color: var(--white);
 }
 
 #root {
