@@ -1,7 +1,7 @@
 import Quotes from "./Quotes";
 import './App.css';
 import React from "react";
-
+import Clock from "./Clock";
 
 export class App extends React.Component {
   constructor (props) {
@@ -30,6 +30,7 @@ export class App extends React.Component {
         <div className="app ">
           <div className="m-7 ">
             <Quotes quotes={this.state.quotes} />
+            <Clock/>
           </div>
         </div>
       </div>
