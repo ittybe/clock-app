@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
 body {
@@ -11,14 +10,13 @@ body {
 }
 
 body {
-  @apply leading-4;
-    height: 100vh;
-    width: 100vw;
-    font-family: var(--font-family);
-    color: var(--white);
+  height: 100vh;
+  width: 100vw;
+  font-family: var(--font-family);
+  color: var(--white);
 }
 
 #root {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

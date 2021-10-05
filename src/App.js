@@ -27,8 +27,10 @@ export class App extends React.Component {
   render() {
     return (
       <div className="main-bg bg-m-light-main">
-        <div className="app">
-          <Quotes quotes={this.state.quotes} />
+        <div className="app ">
+          <div className="m-7 ">
+            <Quotes quotes={this.state.quotes} />
+          </div>
         </div>
       </div>
     );

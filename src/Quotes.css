@@ -1,4 +1,5 @@
 .refresh-icon {
+    @apply flex-shrink-0 m-1 ml-4;
     width: 18px;
     height: 18px;
 }

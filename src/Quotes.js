@@ -49,12 +49,12 @@ export class Quotes extends React.Component {
 
     render() {
         return (
-            <div className="flex flex-row ">
+            <div className="flex flex-row leading-relaxed">
                 <div>
                     <div className="">"{this.state.currentQuote.text}"</div>
-                    <div className="">{this.state.currentQuote.author}</div>
+                    <div className="mt-2 font-bold ">{this.state.currentQuote.author}</div>
                 </div>
-                <button className="refresh-icon flex-shrink-0" onClick={() => this.updateQuote()}>
+                <button className="refresh-icon " onClick={() => this.updateQuote()}>
                     <img src={refresh} alt="refresh"/>
                 </button>
             </div>
