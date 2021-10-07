@@ -28,7 +28,7 @@ export class App extends React.Component {
     return (
       <div className="main-bg bg-m-light-main">
         <div className="app ">
-          <div className="m-7 ">
+          <div className="flex flex-col m-7 h-full">
             <Quotes quotes={this.state.quotes} />
             <Clock/>
           </div>

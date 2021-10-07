@@ -15,6 +15,7 @@
     --m-quote-f-s: 12px;
     --m-key-f-s: 10px;
     --m-value-f-s: 20px; 
+    --m-abbr-f-s: 15px;
 
     /* tablet */
     --t-time-f-s: 175px;
@@ -23,6 +24,7 @@
     --t-quote-f-s: 18px;
     --t-key-f-s: 13px;
     --t-value-f-s: 40px; 
+    --t-abbr-f-s: 32px;
 
     /* desktop */
     --d-time-f-s: 200px;
@@ -31,6 +33,7 @@
     --d-quote-f-s: 18px;
     --d-key-f-s: 15px;
     --d-value-f-s: 56px; 
+    --d-abbr-f-s: 40px;
 
     /* font */
     --font-family: 'Inter', sans-serif;
