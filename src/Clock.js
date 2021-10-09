@@ -1,9 +1,11 @@
 import React from "react";
 import axios from "axios";
 import moment from "moment";
+import "./Clock.css" 
 
-import iconMoon from "./assets/desktop/icon-moon.svg";
-import iconSun from "./assets/desktop/icon-sun.svg";
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 class Time {
     async getIp() {
@@ -57,7 +59,8 @@ export class Clock extends React.Component {
     constructor(props) {
         super(props)        
         this.state = {
-            timeInfo: {} 
+            timeInfo: {},
+            isMorning: true
         }
         this.time = new Time();
         this.intervalId = null;
@@ -70,23 +73,23 @@ export class Clock extends React.Component {
 
     async initialize() {
         const timeInfo =  await this.time.getTimeByIp();
-        timeInfo.timezone = timeInfo.timezone.replace(/[/]/g, ", ");
+        timeInfo.timezone = timeInfo.timezone.replace(/[/]/g, ", ").toUpperCase();
         console.log(`init ${JSON.stringify(timeInfo)}`);
         this.setState({timeInfo: timeInfo});
         
         const timestamp = (Date.parse(timeInfo.datetime));
-        const d = new Date(timestamp)
-        const seconds = d.getSeconds()
+        const d = new Date(timestamp);
+        const seconds = d.getSeconds();
         const deltaSeconds = 60 - seconds; 
-        console.log(`delta seconds=${deltaSeconds}, seconds = ${seconds}`)
-        setTimeout(this.updateClock, deltaSeconds*1000);
+        console.log(`delta seconds=${deltaSeconds}, seconds = ${seconds}`);
+        sleep(deltaSeconds * 1000);
         this.intervalId = setInterval(this.updateClock, 60000);
     } 
     
     async asyncUpdateClock() {
         console.log("updating")
         const timeInfo =  await this.time.getTimeByIp()
-        timeInfo.timezone = timeInfo.timezone.replace(/[/]/g, ", ")
+        timeInfo.timezone = timeInfo.timezone.replace(/[/]/g, ", ").toUpperCase();
         if (timeInfo.time !== this.state.timeInfo.formatedTime){
             console.log(`updated time=${timeInfo.formatedTime}`);
             this.setState({timeInfo: timeInfo});
@@ -100,13 +103,20 @@ export class Clock extends React.Component {
         this.asyncUpdateClock()
     }
     
+    getGreeting() {
+        return this.state.isMorning ? "GOOD MORNING" : "GOOD EVENING";
+    }
+
     render() {
         return (
             <div className="flex-auto flex flex-col justify-end">
                 <div className="
+                    flex flex-row
                     text-m-greeting-f-s 
+                    font-light
+                    tracking-widest
                 ">
-                    <div className="icon"></div>{}
+                    <div className="greeting-icon bg-icon-sun dark:bg-icon-moon"></div>{this.getGreeting()}
                 </div>
                 <div className="
                     text-m-time-f-s 
@@ -118,6 +128,7 @@ export class Clock extends React.Component {
                 <div className="
                     text-m-greeting-f-s
                     font-bold
+                    tracking-widest
                 ">
                     IN {this.state.timeInfo.timezone}
                 </div>
