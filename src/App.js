@@ -4,7 +4,6 @@ import React from "react";
 import Clock from "./Clock";
 import axios from "axios";
 
-
 async function getGeo() {
   const res = await axios.get('https://geolocation-db.com/json/')
   console.log("geo: ", res.data);
@@ -58,10 +57,16 @@ export class App extends React.Component {
       ],
       isMorning: true,
       timeInfo: {},
-      unixtime: null
+      unixtime: null,
+      isTabHidden: true
     }
-    
   }
+
+  switchIsTabHidden() {
+    const isTabHidden = !this.state.isTabHidden;
+    this.setState({isTabHidden: isTabHidden})
+  }
+
   componentDidMount() {
     this.initialize().then(() => {
       setInterval(() => { 
@@ -108,6 +113,18 @@ export class App extends React.Component {
               city={this.state.timeInfo.city}
               countryCode={this.state.timeInfo.countryCode}
               isMorning={this.state.isMorning} />
+            <button onClick={() => this.switchIsTabHidden()}
+              className="
+              moreless-button
+              flex-none flex flex-row 
+              items-center
+              rounded-full py-2 px-2 pl-6
+              bg-white
+              w-min
+              ">
+                <span className="button-text">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
+                <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
+            </button>
           </div>
         </div>
       </div>

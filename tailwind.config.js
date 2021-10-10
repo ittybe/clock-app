@@ -34,7 +34,8 @@ module.exports = {
         "d-light-main":"url('./assets/desktop/bg-image-daytime.jpg')",
         "d-dark-main":"url('./assets/desktop/bg-image-nighttime.jpg')",
         "icon-moon": "url('./assets/desktop/icon-moon.svg')",
-        "icon-sun": "url('./assets/desktop/icon-sun.svg')"
+        "icon-sun": "url('./assets/desktop/icon-sun.svg')",
+        "arrow-up": "url('./assets/desktop/icon-arrow-up.svg')"
       }
     },
   },
