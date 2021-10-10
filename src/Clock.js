@@ -23,7 +23,7 @@ export class Clock extends React.Component {
 
     render() {
         return (
-            <div className="flex-auto flex flex-col justify-end">
+            <div className="flex-auto flex flex-col ">
                 <div className="
                     flex flex-row
                     text-m-greeting-f-s 

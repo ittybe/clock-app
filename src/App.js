@@ -107,24 +107,28 @@ export class App extends React.Component {
         <div className="app ">
           <div className="flex flex-col m-7 h-full">
             <Quotes quotes={this.state.quotes} />
-            <Clock
-              abbreviation={this.state.timeInfo.abbreviation}
-              unixtime={this.state.unixtime}
-              city={this.state.timeInfo.city}
-              countryCode={this.state.timeInfo.countryCode}
-              isMorning={this.state.isMorning} />
-            <button onClick={() => this.switchIsTabHidden()}
-              className="
-              moreless-button
-              flex-none flex flex-row 
-              items-center
-              rounded-full py-2 px-2 pl-6
-              bg-white
-              w-min
-              ">
-                <span className="button-text">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
-                <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
-            </button>
+            <div className="mt-auto">
+              <Clock
+                abbreviation={this.state.timeInfo.abbreviation}
+                unixtime={this.state.unixtime}
+                city={this.state.timeInfo.city}
+                countryCode={this.state.timeInfo.countryCode}
+                isMorning={this.state.isMorning} />
+              <button onClick={() => this.switchIsTabHidden()}
+                className="
+                moreless-button
+                flex-none flex flex-row 
+                items-center
+                rounded-full py-2 px-2 pl-6
+                bg-white
+                w-min
+                mt-16
+                ">
+                  <span className="button-text">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
+                  <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
+              </button>
+            </div>
+            
           </div>
         </div>
       </div>
