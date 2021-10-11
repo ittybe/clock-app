@@ -1,7 +1,15 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: "class", // or 'media' or 'class'
   theme: {
+    colors: {
+      "info-tab": "var(--bg-color-info-tab-light)", 
+      "info-tab-dark": "var(--bg-color-info-tab-dark)", 
+      white: "#fff",
+      black: "#000"
+    },
     fontSize: {
       "m-time-f-s":"var(--m-time-f-s)",
       "m-greetings-f-s":"var(--m-greetings-f-s)",

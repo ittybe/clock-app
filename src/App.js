@@ -57,7 +57,7 @@ export class App extends React.Component {
           author: "Steve Jobs"
         },
       ],
-      isMorning: true,
+      isMorning: false,
       timeInfo: {},
       unixtime: null,
       isTabHidden: true
@@ -66,15 +66,16 @@ export class App extends React.Component {
 
   switchIsTabHidden() {
     const isTabHidden = !this.state.isTabHidden;
-    this.setState({isTabHidden: isTabHidden})
+    this.setState({ isTabHidden: isTabHidden })
   }
 
   componentDidMount() {
     this.initialize().then(() => {
-      setInterval(() => { 
+      setInterval(() => {
         this.setState({ unixtime: this.state.unixtime + 1 })
         console.log("set interval")
-      }, 1000)}, () => { }
+      }, 1000)
+    }, () => { }
     )
   }
 
@@ -105,21 +106,22 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="main-bg bg-m-light-main">
-        <div className="app ">
-          <div className="flex flex-col m-7 h-full">
-            <div className={this.state.isTabHidden ? "block": "hidden"}>
-              <Quotes quotes={this.state.quotes} />
-            </div>
-            <div className="mt-auto">
-              <Clock
-                abbreviation={this.state.timeInfo.abbreviation}
-                unixtime={this.state.unixtime}
-                city={this.state.timeInfo.city}
-                countryCode={this.state.timeInfo.countryCode}
-                isMorning={this.state.isMorning} />
-              <button onClick={() => this.switchIsTabHidden()}
-                className="
+      <div className={`w-full h-full ${this.state.isMorning ? "" : "dark"}`}>
+        <div className="main-bg bg-m-light-main dark:bg-m-dark-main">
+          <div className="app ">
+            <div className="flex flex-col m-7 h-full">
+              <div className={this.state.isTabHidden ? "block" : "hidden"}>
+                <Quotes quotes={this.state.quotes} />
+              </div>
+              <div className="mt-auto">
+                <Clock
+                  abbreviation={this.state.timeInfo.abbreviation}
+                  unixtime={this.state.unixtime}
+                  city={this.state.timeInfo.city}
+                  countryCode={this.state.timeInfo.countryCode}
+                  isMorning={this.state.isMorning} />
+                <button onClick={() => this.switchIsTabHidden()}
+                  className="
                 moreless-button
                 flex-none flex flex-row 
                 items-center
@@ -130,15 +132,16 @@ export class App extends React.Component {
                 ">
                   <span className="button-text text-m-button-f-s">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
                   <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
-              </button>
+                </button>
+              </div>
             </div>
-          </div>
-          <div className={this.state.isTabHidden ? "hidden" : "block"}>
-            <InfoTab 
-              timezone={this.state.timeInfo.timezone} 
-              dayOfYear={this.state.timeInfo.dayOfYear} 
-              dayOfWeek={this.state.timeInfo.dayOfWeek}
-              weekNumber={this.state.timeInfo.weekNumber}/>
+            <div className={this.state.isTabHidden ? "hidden" : "block"}>
+              <InfoTab
+                timezone={this.state.timeInfo.timezone}
+                dayOfYear={this.state.timeInfo.dayOfYear}
+                dayOfWeek={this.state.timeInfo.dayOfWeek}
+                weekNumber={this.state.timeInfo.weekNumber} />
+            </div>
           </div>
         </div>
       </div>

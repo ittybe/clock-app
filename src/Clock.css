@@ -1,5 +1,5 @@
 .greeting-icon {
-    @apply mr-4;
+    @apply mr-4 bg-top bg-no-repeat;
     height: 25px;
     width: 25px;
 }

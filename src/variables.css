@@ -41,4 +41,8 @@
     --font-light: 300;
     --font-regular: 400;
     --font-bold: 700;
+
+    --bg-color-info-tab-light: rgba(255, 255, 255, 0.75);
+    --bg-color-info-tab-dark: rgba(0, 0, 0, 0.75);
+
 }
