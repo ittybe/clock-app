@@ -1,7 +1,9 @@
 import Quotes from "./Quotes";
+import Clock from "./Clock";
+import InfoTab from "./InfoTab";
+
 import './App.css';
 import React from "react";
-import Clock from "./Clock";
 import axios from "axios";
 
 async function getGeo() {
@@ -119,12 +121,12 @@ export class App extends React.Component {
                 moreless-button
                 flex-none flex flex-row 
                 items-center
-                rounded-full py-2 px-2 pl-6
+                rounded-full py-1 px-1 pl-6
                 bg-white
                 w-min
                 mt-16
                 ">
-                  <span className="button-text">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
+                  <span className="button-text text-m-button-f-s">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
                   <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
               </button>
             </div>

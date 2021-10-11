@@ -1,0 +1,31 @@
+.info-tab {
+    backdrop-filter: blur(10px);
+}
+
+.info-tab-light {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.info-tab-dark {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.info {
+    @apply flex flex-row justify-between my-8 items-center;
+}
+
+.info>div:first-child {
+    @apply font-light tracking-widest text-m-key-f-s;
+}
+
+.info>div:last-child {
+    @apply font-bold text-m-value-f-s;
+}
+
+.gray-text {
+    color: var(--gray);
+}
+
+.white-text {
+    color: var(--white);
+}

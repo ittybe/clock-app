@@ -33,7 +33,7 @@
 }
 
 .button-text {
-    @apply text-black font-bold mr-2;
+    @apply font-bold mr-2;
 
     color: var(--gray-button-text-color);
     width: 55px;
