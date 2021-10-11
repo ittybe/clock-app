@@ -108,7 +108,9 @@ export class App extends React.Component {
       <div className="main-bg bg-m-light-main">
         <div className="app ">
           <div className="flex flex-col m-7 h-full">
-            <Quotes quotes={this.state.quotes} />
+            <div className={this.state.isTabHidden ? "block": "hidden"}>
+              <Quotes quotes={this.state.quotes} />
+            </div>
             <div className="mt-auto">
               <Clock
                 abbreviation={this.state.timeInfo.abbreviation}
@@ -131,7 +133,7 @@ export class App extends React.Component {
               </button>
             </div>
           </div>
-          <div className="">
+          <div className={this.state.isTabHidden ? "hidden" : "block"}>
             <InfoTab 
               timezone={this.state.timeInfo.timezone} 
               dayOfYear={this.state.timeInfo.dayOfYear} 
