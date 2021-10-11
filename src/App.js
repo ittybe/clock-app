@@ -74,6 +74,10 @@ export class App extends React.Component {
       setInterval(() => {
         this.setState({ unixtime: this.state.unixtime + 1 })
         console.log("set interval")
+        const difference = this.state.timeInfo.unixtime - this.state.unixtime;
+        if (difference > 180) {
+          this.updateTime()
+        }
       }, 1000)
     }, () => { }
     )
@@ -85,8 +89,13 @@ export class App extends React.Component {
     console.log(`unixtime init: `, timeInfo.unixtime)
   }
 
+  async updateTime () {
+    const timeInfo = await this.getTimeInfo();
+    this.setState({ timeInfo: timeInfo, unixtime: timeInfo.unixtime })
+    console.log(`update time: `, timeInfo.unixtime)
+  }
 
-  async getTimeInfo() {
+  async GetTimeInfo() {
     const geo = await getGeo();
     const time = await getTimeByIp(geo.ip);
 
