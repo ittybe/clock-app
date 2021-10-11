@@ -128,13 +128,18 @@ export class App extends React.Component {
                   <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
               </button>
             </div>
-            
+          </div>
+          <div className="">
+            <InfoTab 
+              timezone={this.state.timeInfo.timezone} 
+              dayOfYear={this.state.timeInfo.dayOfYear} 
+              dayOfWeek={this.state.timeInfo.dayOfWeek}
+              weekNumber={this.state.timeInfo.weekNumber}/>
           </div>
         </div>
       </div>
     );
   }
-
 }
 
 export default App;
