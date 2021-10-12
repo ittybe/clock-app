@@ -5,6 +5,7 @@ import InfoTab from "./InfoTab";
 import './App.css';
 import React from "react";
 import axios from "axios";
+import moment from "moment"
 
 async function getGeo() {
   const res = await axios.get('https://geolocation-db.com/json/')
@@ -57,7 +58,7 @@ export class App extends React.Component {
           author: "Steve Jobs"
         },
       ],
-      isMorning: false,
+      isMorning: true,
       timeInfo: {},
       unixtime: null,
       isTabHidden: true
@@ -70,17 +71,18 @@ export class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log("component did mount")
     this.initialize().then(() => {
+      this.isMorningNow(this.state.unixtime);
       setInterval(() => {
         this.setState({ unixtime: this.state.unixtime + 1 })
         console.log("set interval")
-        const difference = this.state.timeInfo.unixtime - this.state.unixtime;
+        const difference = this.state.unixtime - this.state.timeInfo.unixtime;
         if (difference > 180) {
           this.updateTime()
         }
       }, 1000)
-    }, () => { }
-    )
+    }, () => { })
   }
 
   async initialize() {
@@ -89,13 +91,34 @@ export class App extends React.Component {
     console.log(`unixtime init: `, timeInfo.unixtime)
   }
 
+  isMorningNow(unixtime) {
+    // will change morning value if it s not 
+    // A compared to B 
+    const datetime = new Date(unixtime * 1000)
+    const now = moment(datetime);
+    const startOfDay = moment(datetime).startOf("day");
+    const hoursAgoMassage = startOfDay.from(now) 
+    console.log(`isMorningNow message ${hoursAgoMassage} now ${now} startOfday ${startOfDay} unixtime ${unixtime}`)
+
+    if (/\d+ hour.? ago/g.test(hoursAgoMassage)) {
+      const arr = hoursAgoMassage.split(" ");
+      const hours = parseInt(arr[0]);
+      if (hours >= 16) {
+        const isMorning = this.state.isMorning;
+        this.setState({isMorning: !isMorning})
+      } 
+    }
+  }
+
   async updateTime () {
     const timeInfo = await this.getTimeInfo();
     this.setState({ timeInfo: timeInfo, unixtime: timeInfo.unixtime })
-    console.log(`update time: `, timeInfo.unixtime)
+    console.log(`update time : `, timeInfo.unixtime)
+    console.log(`${moment(timeInfo.unixtime).startOf()}`)
+    this.isMorningNow(timeInfo.unixtime)
   }
 
-  async GetTimeInfo() {
+  async getTimeInfo() {
     const geo = await getGeo();
     const time = await getTimeByIp(geo.ip);
 
