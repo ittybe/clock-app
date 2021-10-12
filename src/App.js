@@ -104,9 +104,13 @@ export class App extends React.Component {
       const arr = hoursAgoMassage.split(" ");
       const hours = parseInt(arr[0]);
       if (hours >= 16) {
-        const isMorning = this.state.isMorning;
-        this.setState({isMorning: !isMorning})
+        const isMorning = false;
+        this.setState({isMorning: isMorning})
       } 
+      else {
+        const isMorning = true;
+        this.setState({isMorning: isMorning})
+      }
     }
   }
 
@@ -139,10 +143,10 @@ export class App extends React.Component {
   render() {
     return (
       <div className={`w-full h-full ${this.state.isMorning ? "" : "dark"}`}>
-        <div className="main-bg bg-m-light-main dark:bg-m-dark-main">
+        <div className="main-bg bg-m-light-main dark:bg-m-dark-main md:dark:bg-t-light-main md:dark:bg-t-dark-main">
           <div className="app ">
-            <div className="flex flex-col m-7 h-full">
-              <div className={this.state.isTabHidden ? "block" : "hidden"}>
+            <div className="flex flex-col h-full m-7 md:m-16">
+              <div className={`text-m-button-f-s md:text-t-button-f-s ${this.state.isTabHidden ? "block" : "hidden"}`}>
                 <Quotes quotes={this.state.quotes} />
               </div>
               <div className="mt-auto">
@@ -157,12 +161,12 @@ export class App extends React.Component {
                 moreless-button
                 flex-none flex flex-row 
                 items-center
-                rounded-full py-1 px-1 pl-6
+                rounded-full py-1 px-1 pl-6 md:py-2 md:px-2 md:pl-4
                 bg-white
                 w-min
                 mt-16
                 ">
-                  <span className="button-text text-m-button-f-s">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
+                  <span className="button-text text-m-button-f-s md:text-t-button-f-s">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
                   <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
                 </button>
               </div>

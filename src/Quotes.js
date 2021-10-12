@@ -49,7 +49,7 @@ export class Quotes extends React.Component {
 
     render() {
         return (
-            <div className="flex flex-row leading-relaxed ">
+            <div className="quotes flex flex-row leading-relaxed md:justify-between">
                 <div>
                     <div className="">"{this.state.currentQuote.text}"</div>
                     <div className="mt-2 font-bold ">{this.state.currentQuote.author}</div>

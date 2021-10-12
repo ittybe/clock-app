@@ -38,5 +38,11 @@
     color: var(--gray-button-text-color);
     width: 55px;
     letter-spacing: 0.2em;
+}
 
+@media screen and (min-width: 768px) {
+    .button-text {
+        width: 80px;
+    }
+    
 }
