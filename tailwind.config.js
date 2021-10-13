@@ -4,6 +4,11 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: "class", // or 'media' or 'class'
   theme: {
+    screens: {
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1440px"
+    },
     colors: {
       "info-tab": "var(--bg-color-info-tab-light)", 
       "info-tab-dark": "var(--bg-color-info-tab-dark)", 
@@ -26,11 +31,11 @@ module.exports = {
       "t-value-f-s":"var(--t-value-f-s)",
       "t-abbr-f-s":"var(--t-abbr-f-s)",
       "d-time-f-s":"var(--d-time-f-s)",
-      "d-greetings-f-s":"var(d-greetings-f-s)",
-      "d-button-f-s":"var(d-button-f-s)",
-      "d-quote-f-s":"var(d-quote-f-s)",
-      "d-key-f-s":"var(d-key-f-s)",
-      "d-value-f-s":"var(d-value-f-s)",
+      "d-greetings-f-s":"var(--d-greetings-f-s)",
+      "d-button-f-s":"var(--d-button-f-s)",
+      "d-quote-f-s":"var(--d-quote-f-s)",
+      "d-key-f-s":"var(--d-key-f-s)",
+      "d-value-f-s":"var(--d-value-f-s)",
       "d-abbr-f-s":"var(--d-abbr-f-s)",
     },
     extend: {

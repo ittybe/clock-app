@@ -97,7 +97,7 @@ export class App extends React.Component {
     const datetime = new Date(unixtime * 1000)
     const now = moment(datetime);
     const startOfDay = moment(datetime).startOf("day");
-    const hoursAgoMassage = startOfDay.from(now) 
+    const hoursAgoMassage = startOfDay.from(now)
     console.log(`isMorningNow message ${hoursAgoMassage} now ${now} startOfday ${startOfDay} unixtime ${unixtime}`)
 
     if (/\d+ hour.? ago/g.test(hoursAgoMassage)) {
@@ -105,16 +105,16 @@ export class App extends React.Component {
       const hours = parseInt(arr[0]);
       if (hours >= 16) {
         const isMorning = false;
-        this.setState({isMorning: isMorning})
-      } 
+        this.setState({ isMorning: isMorning })
+      }
       else {
         const isMorning = true;
-        this.setState({isMorning: isMorning})
+        this.setState({ isMorning: isMorning })
       }
     }
   }
 
-  async updateTime () {
+  async updateTime() {
     const timeInfo = await this.getTimeInfo();
     this.setState({ timeInfo: timeInfo, unixtime: timeInfo.unixtime })
     console.log(`update time : `, timeInfo.unixtime)
@@ -143,21 +143,22 @@ export class App extends React.Component {
   render() {
     return (
       <div className={`w-full h-full ${this.state.isMorning ? "" : "dark"}`}>
-        <div className="main-bg bg-m-light-main dark:bg-m-dark-main md:dark:bg-t-light-main md:dark:bg-t-dark-main">
-          <div className="app ">
-            <div className="flex flex-col h-full m-7 md:m-16">
-              <div className={`text-m-button-f-s md:text-t-button-f-s ${this.state.isTabHidden ? "block" : "hidden"}`}>
-                <Quotes quotes={this.state.quotes} />
-              </div>
-              <div className="mt-auto">
-                <Clock
-                  abbreviation={this.state.timeInfo.abbreviation}
-                  unixtime={this.state.unixtime}
-                  city={this.state.timeInfo.city}
-                  countryCode={this.state.timeInfo.countryCode}
-                  isMorning={this.state.isMorning} />
-                <button onClick={() => this.switchIsTabHidden()}
-                  className="
+        <div className="main-bg bg-m-light-main dark:bg-m-dark-main md:bg-t-light-main md:dark:bg-t-dark-main lg:bg-d-light-main lg:dark:bg-d-dark-main">
+          <div className="app-wrapper">
+            <div className="app">
+              <div className="top flex flex-col h-full m-7 md:m-16 ">
+                <div className={`text-m-button-f-s md:text-t-button-f-s ${this.state.isTabHidden ? "block" : "hidden"}`}>
+                  <Quotes quotes={this.state.quotes} />
+                </div>
+                <div className="mt-auto lg:flex lg:flex-row lg:items-end">
+                  <Clock
+                    abbreviation={this.state.timeInfo.abbreviation}
+                    unixtime={this.state.unixtime}
+                    city={this.state.timeInfo.city}
+                    countryCode={this.state.timeInfo.countryCode}
+                    isMorning={this.state.isMorning} />
+                  <button onClick={() => this.switchIsTabHidden()}
+                    className="
                 moreless-button
                 flex-none flex flex-row 
                 items-center
@@ -166,17 +167,18 @@ export class App extends React.Component {
                 w-min
                 mt-16
                 ">
-                  <span className="button-text text-m-button-f-s md:text-t-button-f-s">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
-                  <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
-                </button>
+                    <span className="button-text text-m-button-f-s md:text-t-button-f-s">{this.state.isTabHidden ? "MORE" : "LESS"}</span>
+                    <div className={`arrow-up bg-arrow-up ${this.state.isTabHidden ? "" : "flip-arrow"}`}></div>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className={this.state.isTabHidden ? "hidden" : "block"}>
-              <InfoTab
-                timezone={this.state.timeInfo.timezone}
-                dayOfYear={this.state.timeInfo.dayOfYear}
-                dayOfWeek={this.state.timeInfo.dayOfWeek}
-                weekNumber={this.state.timeInfo.weekNumber} />
+              <div className={`bottom ${this.state.isTabHidden ? "hidden" : "block"}`}>
+                <InfoTab
+                  timezone={this.state.timeInfo.timezone}
+                  dayOfYear={this.state.timeInfo.dayOfYear}
+                  dayOfWeek={this.state.timeInfo.dayOfWeek}
+                  weekNumber={this.state.timeInfo.weekNumber} />
+              </div>
             </div>
           </div>
         </div>

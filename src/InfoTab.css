@@ -33,11 +33,10 @@
 
 @media screen and (min-width: 768px) {
     .info-tab {
-        @apply flex flex-row flex-wrap p-16 p-20;
+        @apply flex flex-row flex-wrap p-16 justify-between;
     }
-
     .info {
-        @apply flex-col justify-start items-start w-5/12 m-6;
+        @apply flex-col justify-start items-start w-5/12;
     }
     .info>div:first-child {
         @apply text-t-key-f-s;
@@ -45,5 +44,14 @@
     
     .info>div:last-child {
         @apply text-t-value-f-s;
+    }
+}
+@media screen and (min-width: 1024px){
+    .info>div:first-child {
+        @apply text-d-key-f-s;
+    }
+    
+    .info>div:last-child {
+        @apply text-d-value-f-s;
     }
 }
