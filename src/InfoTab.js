@@ -6,7 +6,7 @@ export class InfoTab extends react.Component {
 
     render() {
         return (
-            <div className="info-tab bg-info-tab dark:bg-info-tab-dark p-7 py-3">
+            <div className="info-tab bg-info-tab dark:bg-info-tab-dark">
                 <div className="info gray-text dark:text-white">
                     <div>CURRENT TIMEZONE</div>
                     <div>{this.props.timezone}</div>

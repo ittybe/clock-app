@@ -3,7 +3,3 @@
     height: 25px;
     width: 25px;
 }
-
-.add-text::after {
-    content: ", IT'S CURRENTLY"
-}

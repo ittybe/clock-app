@@ -20,17 +20,17 @@
 
     /* tablet */
     --t-time-f-s: 175px;
-    --t-greetings-f-s: 18px;
+    --t-greetings-f-s: 22px;
     --t-button-f-s: 18px;
     --t-quote-f-s: 18px;
     --t-key-f-s: 13px;
-    --t-value-f-s: 40px; 
+    --t-value-f-s: 36px; 
     --t-abbr-f-s: 32px;
 
     /* desktop */
     --d-time-f-s: 200px;
-    --d-greetings-f-s: 20px;
-    --d-button-f-s: 16px;
+    --d-greetings-f-s: 28px;
+    --d-button-f-s: 18px;
     --d-quote-f-s: 18px;
     --d-key-f-s: 15px;
     --d-value-f-s: 56px; 

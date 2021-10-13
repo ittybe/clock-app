@@ -26,13 +26,14 @@ export class Clock extends React.Component {
             <div className="flex-auto flex flex-col ">
                 <div className="
                     flex flex-row
-                    text-m-greeting-f-s 
+                    text-m-greetings-f-s 
                     font-light
                     tracking-widest
-                    md:text-t-greeting-f-s
-                    xl:text-d-greeting-f-s
+                    md:text-t-greetings-f-s
+                    xl:text-d-greetings-f-s
                 ">
                     <div className="greeting-icon bg-icon-sun dark:bg-icon-moon"></div>{this.getGreeting()}
+                    <span className="hidden md:block">, IT'S CURRENTLY</span>
                 </div>
                 <div className="
                     text-m-time-f-s 
@@ -42,14 +43,14 @@ export class Clock extends React.Component {
 
                 ">
                     {this.getFormatedTime()}
-                    <span className="text-m-abbr-f-s font-light">{this.props.abbreviation}</span>
+                    <span className="text-m-abbr-f-s font-light md:text-t-abbr-f-s xl:text-d-abbr-f-s">{this.props.abbreviation}</span>
                 </div>
                 <div className="
-                    text-m-greeting-f-s
+                    text-m-greetings-f-s
                     font-bold
                     tracking-widest
-                    md:text-t-greeting-f-s
-                    xl:text-d-greeting-f-s
+                    md:text-t-greetings-f-s
+                    xl:text-d-greetings-f-s
                 ">
                     {this.getLocation()}
                 </div>

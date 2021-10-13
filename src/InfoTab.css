@@ -1,4 +1,5 @@
 .info-tab {
+    @apply p-7 py-6;
     backdrop-filter: blur(10px);
 }
 
@@ -11,7 +12,7 @@
 }
 
 .info {
-    @apply flex flex-row justify-between my-8 items-center;
+    @apply flex flex-row justify-between my-5 items-center;
 }
 
 .info>div:first-child {
@@ -28,4 +29,21 @@
 
 .white-text {
     color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+    .info-tab {
+        @apply flex flex-row flex-wrap p-16 p-20;
+    }
+
+    .info {
+        @apply flex-col justify-start items-start w-5/12 m-6;
+    }
+    .info>div:first-child {
+        @apply text-t-key-f-s;
+    }
+    
+    .info>div:last-child {
+        @apply text-t-value-f-s;
+    }
 }
