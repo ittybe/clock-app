@@ -6,8 +6,8 @@ export class InfoTab extends react.Component {
 
     render() {
         return (
-            <div className="bg-info-tab dark:bg-info-tab-dark">
-                <div className="info-tab ">
+            <div className="overflow-auto bg-info-tab dark:bg-info-tab-dark ">
+                <div className={`info-tab ${this.props.isMorning ? "stripe-light-mode": "stripe-dark-mode"}`}>
                     <div className="info gray-text dark:text-white">
                         <div>CURRENT TIMEZONE</div>
                         <div>{this.props.timezone}</div>

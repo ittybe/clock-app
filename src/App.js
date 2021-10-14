@@ -177,7 +177,8 @@ export class App extends React.Component {
                   timezone={this.state.timeInfo.timezone}
                   dayOfYear={this.state.timeInfo.dayOfYear}
                   dayOfWeek={this.state.timeInfo.dayOfWeek}
-                  weekNumber={this.state.timeInfo.weekNumber} />
+                  weekNumber={this.state.timeInfo.weekNumber}
+                  isMorning={this.state.isMorning} />
               </div>
             </div>
           </div>
