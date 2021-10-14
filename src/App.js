@@ -24,7 +24,7 @@ async function getGeo() {
 
 async function getTimeByIp(ip) {
   if (ip) {
-    const res = await axios.get(`http://worldtimeapi.org/api/ip/${ip}`);
+    const res = await axios.get(`https://worldtimeapi.org/api/ip/${ip}`);
 
     // convert datetime into string with only hours and minutes
     console.log("time by ip", res)
