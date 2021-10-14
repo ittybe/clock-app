@@ -147,7 +147,7 @@ export class App extends React.Component {
           <div className="app-wrapper">
             <div className="app">
               <div className="top flex flex-col h-full m-7 md:m-16 ">
-                <div className={`text-m-button-f-s md:text-t-button-f-s ${this.state.isTabHidden ? "block" : "hidden"}`}>
+                <div className={`text-m-button-f-s md:text-t-button-f-s mb-20 ${this.state.isTabHidden ? "block" : "hidden"}`}>
                   <Quotes quotes={this.state.quotes} />
                 </div>
                 <div className="mt-auto lg:flex lg:flex-row lg:items-end">
